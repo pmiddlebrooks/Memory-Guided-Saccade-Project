@@ -1,6 +1,8 @@
 function localDataPath = local_data_path
 
 
+% Need to add conditional to determine whether user is on Paul's or Jacob's
+% computer
 
 homeDataPath = '/Users/paulmiddlebrooks/schalllab/local_data/';
 tebaDataPath = '/Volumes/SchallLab/data/';
