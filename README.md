@@ -1,0 +1,1 @@
+This is a project to examine spiking (and other) properties of neurons in frontal eye fields. Data is from multi-contact vector probes.
