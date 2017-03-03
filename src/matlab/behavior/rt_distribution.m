@@ -1,4 +1,4 @@
-function rt = rt_distribution(subjectID, sessionID, trialList)
+function rt = rt_distribution(subjectID, sessionID, trialList) %comment test
 
 
 % Load the data
