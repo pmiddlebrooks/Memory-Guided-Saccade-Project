@@ -4,7 +4,10 @@ function [trialData, SessionData, ExtraVariable] = load_data(subject, sessionID,
 % Loads a data file and does some minimal processing common to lots of
 % analyses
 
-
+switch lower(subject)
+    case 'joule';
+        tebaID = 'Joule';
+end
 
 ExtraVariable = struct();
 
@@ -19,7 +22,7 @@ end
 
 % Figure out where the data files are on teba and locally
 tebaDataPath = '/Volumes/SchallLab/data/';
-tebaDataFile = fullfile(tebaDataPath, subject, sessionID);
+tebaDataFile = fullfile(tebaDataPath, tebaID, sessionID);
 
 localDataFile = fullfile(localDataPath, subject, sessionID);
 
