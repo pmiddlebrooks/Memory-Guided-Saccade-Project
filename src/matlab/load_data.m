@@ -1,4 +1,4 @@
-function [trialData, SessionData, ExtraVariable] = load_data(subject, sessionID, localDataPath, variables)
+function [trialData, SessionData, ExtraVariable] = load_data(subject, sessionID, variables)
 % function [trialData, SessionData] = load_data(subjectID, sessionID)
 %
 % Loads a data file and does some minimal processing common to lots of
@@ -7,6 +7,8 @@ function [trialData, SessionData, ExtraVariable] = load_data(subject, sessionID,
 switch lower(subject)
     case 'joule';
         tebaID = 'Joule';
+    case 'broca';
+        tebaID = 'Broca';
 end
 
 ExtraVariable = struct();
@@ -24,13 +26,13 @@ end
 tebaDataPath = '/Volumes/SchallLab/data/';
 tebaDataFile = fullfile(tebaDataPath, tebaID, sessionID);
 
-localDataFile = fullfile(localDataPath, subject, sessionID);
+localDataFile = fullfile(local_data_path, subject, sessionID);
 
 
 % If the file hasn't already been copied to a local directory, do it now
 if exist(localDataFile, 'file') ~= 2
-    copyfile(tebaDataFile, fullfile(localDataPath, subject))
-    fprintf('Loaded session %s', sessionID);
+    copyfile(tebaDataFile, fullfile(local_data_path, subject))
+    fprintf('Loaded session %s\n', sessionID);
 end
 
 
