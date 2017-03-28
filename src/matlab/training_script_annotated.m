@@ -1,4 +1,4 @@
-% Establish working environment and and matlab paths
+%% Establish working environment and and matlab paths
 
 % Which computer are you on?
 if isdir('/Volumes/HD-1/Users/paulmiddlebrooks/')
@@ -24,7 +24,7 @@ addpath(genpath(fullfile(matRoot,'plotting')));
 cd(matRoot)
 
 
-% Open a Data File
+%% Open a Data File
 
 % declare subject for session list
 subject = 'joule';
@@ -53,16 +53,16 @@ eegLogical      = mData{5};
 sessionList = sessionList(neuronLogical);
 
 
-% Pick a session and load the data
+%% Pick a session and load the data
 
-% session row
+% session row/rows
 sessionInd = 1;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, dataRoot)
 
 
-% Sort trials based on trial type criteria
+%% Sort trials based on trial type criteria
 
 outcome = {'saccToTarget'}
 side = {'left'}
@@ -71,7 +71,7 @@ side = {'left'}
 trials = mem_trial_selection(trialData, outcome, side);
 
 
-% Extract spike data (as aligned rasters) for a unit, aligned on event/epoch
+%% Extract spike data (as aligned rasters) for a unit, aligned on event/epoch
 
 % Set up the variables
 unitIndex = 1;
@@ -83,7 +83,7 @@ alignList = trialData.(alignEvent)(trials); % on which trials alignEvent was 'ta
 [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trials, unitIndex), alignList);
 
 
-% Plot each raster to see each trial's spiking times
+%% Plot each raster to see each trial's spiking times
 
 % Set up plot variables
 plotWindow = [-500 : 500];
