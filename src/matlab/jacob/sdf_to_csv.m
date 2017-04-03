@@ -51,36 +51,32 @@ eegLogical      = mData{5};
 
 % Extract only sessions with spike data
 sessionList = sessionList(neuronLogical);
+epochWindow = [-500 : 500];
 
 
-%% Pick a session and load the data
+%% Begin for loop for all sessions
 
-% session row/rows
-sessionInd = 1;
-session = sessionList{sessionInd};
+sessionDataAll = [];
+unitAll = [];
+outcome = {'saccToTarget'};
+side = {'right'};
+for i = 1 : length(sessionList)
+        sessionInd = sessionList{i};
+        session = sessionInd;
+        [trialData_i, SessionData] = load_data(subject, session, dataRoot);
+        trials = mem_trial_selection(trialData_i, outcome, side);
+        sessionDataAll = [sessionDataAll , trialData_i];
+        for i = 1 : length(SessionData.spikeUnitArray);
+            unitIndex = SessionData.spikeUnitArray{i};
+            alignEvent = 'targOn';
+            alignList = trialData_i.(alignEvent)(trials);
+            unitAll = [unitAll , trialData_i];
+            [alignedRasters, alignmentIndex] = spike_to_raster(trialData_i.spikeData(trials, unitIndex), alignList);
 
-[trialData, SessionData] = load_data(subject, session, dataRoot)
+        end
+            
+end
 
-
-%% Sort trials based on trial type criteria
-
-outcome = {'saccToTarget'}
-side = {'left'}
-
-
-trials = mem_trial_selection(trialData, outcome, side);
-
-
-%% Extract spike data (as aligned rasters) for a unit, aligned on event/epoch
-
-% Set up the variables
-unitIndex = 1;
-alignEvent = 'targOn';
-alignList = trialData.(alignEvent)(trials); % on which trials alignEvent was 'targOn' in trialData
- 
-    
-% Get the rasters (and what index they align to)
-[alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trials, unitIndex), alignList);
 
 
 %% Plot each raster to see each trial's spiking times
@@ -88,7 +84,6 @@ alignList = trialData.(alignEvent)(trials); % on which trials alignEvent was 'ta
 % Set up plot variables
 plotWindow = [-500 : 500];
 nTrial = length(trials);
-
 
 % Open a plot and tell matlab to hold the axes so we can plot multiple things on it
 figure(1)
@@ -130,33 +125,7 @@ plot(plotWindow, sdfMean(:, alignmentIndex + plotWindow), 'color', 'k', 'lineWid
 % Alter y-axis to see whole SDF
 ylim([0 1.1* max(sdfMean)])
 
+%% Output csv of sdfMean
+cell_of_interest = sdfMean;
+S = stack(neuronLogical,vars,Name,Value)
 
-%% Want to see SDFs and rasters for both sides throughout the trial?
-unit = SessionData.spikeUnitArray(unitIndex);
-
-Opt = mem_options;
-Opt.printPlot = true;
-Opt.unitArray = unit;
-
-Data = mem_session_data(subject, session, Opt);
-
-
-%% Convert spike density function into a heat map plot
-
-% Normalize the sdf to 1:
-sdfNorm = sdfMean ./ max(sdfMean);
-
-% Plot the heatmap on a new figure
-figure(2)
-colormap('jet')
-% imagesc(plotWindow, [0 1], sdfNorm(:, alignmentIndex + plotWindow))
-imagesc(sdfNorm(:, alignmentIndex + plotWindow))
-caxis([0 1])
-
-
-%% remove paths so you can use normal codes
-rmpath(matRoot);
-rmpath(fullfile(matRoot,'behavior'));
-rmpath(fullfile(matRoot,'mem'));
-rmpath(fullfile(matRoot,'neural'));
-%%
