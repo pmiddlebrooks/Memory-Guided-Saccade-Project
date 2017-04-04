@@ -21,7 +21,7 @@ addpath(genpath(fullfile(matRoot,'neural')));
 addpath(genpath(fullfile(matRoot,'plotting')));
 
 % Make this project directory your working directory
-cd(matRoot)
+cd(matRoot);
 
 
 %% Open a Data File
@@ -60,28 +60,52 @@ epochWindow = [-500 : 500];
 sessionInd = 1;
 session = sessionList{sessionInd};
 
-[trialData, SessionData] = load_data(subject, session, dataRoot)
+[trialData, SessionData] = load_data(subject, session, dataRoot);
 
 
 % Sort trials based on trial type criteria
 
 outcome = {'saccToTarget'};
-side = {'left'};
-alignEvent = 'targOn';
+%side = {'left'};
+%alignEvent = 'targOn';
 Kernel.method = 'postsynaptic potential';
 Kernel.growth = 1;
 Kernel.decay = 20;
 
-unitAll = [];
 sdfAll = [];
+alignEvent = 'responseOnset';
 
-trials = mem_trial_selection(trialData, outcome, side);
-alignList = trialData.(alignEvent)(trials);
-    for i = 1 : length(SessionData.spikeUnitArray);
-%             unitIndex = SessionData.spikeUnitArray{i};
-            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trials, i), alignList);
-            sdf = spike_density_function(alignedRasters, Kernel);
-            sdfMean = nanmean(sdf, 1);
-            sdfAll = [sdfAll ; sdfMean(epochWindow + alignmentIndex)];
-    end
+side = {'left'};
+trialsLeft = mem_trial_selection(trialData, outcome, side);
+alignLeft = trialData.(alignEvent)(trialsLeft);
+
+side = {'right'};
+trialsRight = mem_trial_selection(trialData, outcome, side);
+alignRight = trialData.(alignEvent)(trialsRight);
+
+[unitIndex, unitArrayNew] = neuronexus_plexon_mapping(SessionData.spikeUnitArray, 32);
+
+    for i = 1 : length(unitArrayNew);
+            iUnitIndex = unitIndex(i);
+            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsLeft, iUnitIndex), alignLeft);
+            sdfLeft = spike_density_function(alignedRasters, Kernel);
+            sdfMeanLeft = nanmean(sdfLeft, 1);
+            sdfAll = [sdfAll ; sdfMeanLeft(epochWindow + alignmentIndex)];
             
+            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsRight, iUnitIndex), alignRight);
+            sdfRight = spike_density_function(alignedRasters, Kernel);
+            sdfMeanRight = nanmean(sdfRight, 1);
+            sdfAll = [sdfAll ; sdfMeanRight(epochWindow + alignmentIndex)];
+            
+    end
+sdfAll = (sdfAll');
+unitArrayNew = flipud(unitArrayNew');
+
+%% Plot all SDFs
+plotWindow = [-500 : 500];
+
+
+figure(1)
+plot(plotWindow, sdfAll(:, alignmentIndex + plotWindow), 'color', 'k', 'lineWidth', 3)
+
+ylim([0 1.1* max(sdfAll)])

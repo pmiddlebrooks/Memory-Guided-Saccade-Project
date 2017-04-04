@@ -13,8 +13,8 @@ unitArrayNew = [];
 
 switch nChannel
     case 32
-%         neuronexusMap = fliplr([9:16,25:32,17:24,1:8]);
-        neuronexusMap = [9:16,25:32,17:24,1:8];
+        neuronexusMap = ([9:16,25:32,17:24,1:8]);
+%        neuronexusMap = [9:16,25:32,17:24,1:8];
         for i = neuronexusMap
             iInd = find(cellfun(@(x) ~isempty(regexp(x, sprintf('.*%02d', i))),unitArray));
             unitIndex = [unitIndex, iInd];

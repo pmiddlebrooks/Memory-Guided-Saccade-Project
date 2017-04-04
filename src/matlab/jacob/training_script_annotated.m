@@ -65,7 +65,7 @@ session = sessionList{sessionInd};
 % Sort trials based on trial type criteria
 
 outcome = {'saccToTarget'};
-side = {'right'};
+side = {'left'};
 
 
 trials = mem_trial_selection(trialData, outcome, side);
@@ -74,7 +74,7 @@ trials = mem_trial_selection(trialData, outcome, side);
 % Extract spike data (as aligned rasters) for a unit, aligned on event/epoch
 
 % Set up the variables
-unitIndex = 61;
+unitIndex = 9;
 alignEvent = 'responseOnset';
 alignList = trialData.(alignEvent)(trials); % on which trials alignEvent was 'targOn' in trialData
 epochWindow = [-500:500]; 
