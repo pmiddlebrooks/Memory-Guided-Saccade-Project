@@ -1,4 +1,4 @@
-function [trialData, SessionData, ExtraVariable] = load_data(subject, sessionID, variables)
+function [trialData, SessionData, ExtraVariable] = load_data(subject, sessionID, variables, multiUnit)
 % function [trialData, SessionData] = load_data(subjectID, sessionID)
 %
 % Loads a data file and does some minimal processing common to lots of
@@ -39,7 +39,7 @@ end
 
 % If you specified particular variables to load beyond the default
 % behavioral vriables, load them
-if nargin > 3
+if nargin > 2
     trialData = load(localDataFile, variables{:});
 else
     trialData = load(localDataFile);
@@ -47,6 +47,16 @@ end
 SessionData = trialData.SessionData;
 trialData = rmfield(trialData, 'SessionData');
 
+
+
+% if requesting to load multi-unit (collapsing all units per channel:
+if multiUnit
+    if ismember('spikeData', variables)
+    [SessionData.spikeUnitArray, trialData.spikeData] = convert_to_multiunit(SessionData.spikeUnitArray, trialData.spikeData);
+    else
+    [SessionData.spikeUnitArray, ~] = convert_to_multiunit(SessionData.spikeUnitArray);
+    end
+end
 
 
 % Assign the task ID
