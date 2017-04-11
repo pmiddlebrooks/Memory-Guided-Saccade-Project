@@ -38,7 +38,7 @@ end
 
 
 % If you specified particular variables to load beyond the default
-% behavioral vriables, load them
+% variables, load them
 if nargin > 2
     trialData = load(localDataFile, variables{:});
 else
