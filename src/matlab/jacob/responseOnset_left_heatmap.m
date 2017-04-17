@@ -1,4 +1,4 @@
-%% Establish working environment and and matlab paths
+% Establish working environment and and matlab paths
 
 % Which computer are you on?
 if isdir('/Volumes/HD-1/Users/paulmiddlebrooks/')
@@ -24,7 +24,7 @@ addpath(genpath(fullfile(matRoot,'plotting')));
 cd(matRoot);
 
 
-%% Open a Data File
+% Open a Data File
 
 % declare subject for session list
 subject = 'joule';
@@ -54,10 +54,10 @@ sessionList = sessionList(neuronLogical);
 epochWindow = [-500 : 500];
 
 
-%% Begin for loop for all sessions
+% Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 1;
+sessionInd = 19;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -73,15 +73,11 @@ Kernel.growth = 1;
 Kernel.decay = 20;
 
 sdfAll = [];
-alignEvent = 'targOn';
+alignEvent = 'responseOnset';
 
 side = {'left'};
 trialsLeft = mem_trial_selection(trialData, outcome, side);
 alignLeft = trialData.(alignEvent)(trialsLeft);
-
-%side = {'right'};
-%trialsRight = mem_trial_selection(trialData, outcome, side);
-%alignRight = trialData.(alignEvent)(trialsRight);
 
 [unitIndex, unitArrayNew] = neuronexus_plexon_mapping(SessionData.spikeUnitArray, 32);
 
@@ -91,42 +87,18 @@ alignLeft = trialData.(alignEvent)(trialsLeft);
             sdfLeft = spike_density_function(alignedRasters, Kernel);
             sdfMeanLeft = nanmean(sdfLeft(:,epochWindow + alignmentIndex), 1);
             sdfAll = [sdfAll ; sdfMeanLeft];
-%                for i = 1 : length(unitIndex);
-
-%                    Ri = R(i);
-%                    R = corrcoef(Ri);
-%                    RAll = [RAll ; R];
-%                end
-            
-%            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsRight, iUnitIndex), alignRight);
-%           sdfRight = spike_density_function(alignedRasters, Kernel);
-%            sdfMeanRight = nanmean(sdfRight, 1);
-%            sdfMeanRightEpoch = sdfMeanRight(epochWindow + alignmentIndex);
-%            sdfAll = [sdfAll ; sdfMeanRight(epochWindow + alignmentIndex)];
-            
     end
 sdfAll = (sdfAll');
-unitArrayNew = (unitArrayNew'); %why flipped?
-
-corrcoefAll = [];
+unitArrayNew = (unitArrayNew'); 
 
 
-j = corrcoef(ch09)
-%%
-
-    for j = 1 : length(unitIndex);
-        jcorrVal = corrcoef(sdfAll(i))
-        [corrcoefAll] = (sdfAll, jcorrVal)
-        sdfAll = sdfAll
-    end
-
-%R = corrcoef(sdfMeanLeftEpoch,);
-
-%% Plot all SDFs
-plotWindow = [-500 : 500];
+% Find the correlation coefficient across channels
+corrcoefAll = corrcoef(sdfAll(:,:));
+r_squared = (corrcoefAll).^2;
 
 
-figure(1)
-plot(x, sdfAll(:, alignmentIndex + plotWindow), 'color', 'k', 'lineWidth', 3)
 
-ylim([0 1.1* max(sdfAll)])
+imagesc(r_squared);
+cb = colorbar;
+ylabel(cb, 'r^2');
+title('jp125n01 responseOnset left');

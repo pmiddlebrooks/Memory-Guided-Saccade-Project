@@ -1,4 +1,4 @@
-%% Establish working environment and and matlab paths
+% Establish working environment and and matlab paths
 
 % Which computer are you on?
 if isdir('/Volumes/HD-1/Users/paulmiddlebrooks/')
@@ -24,7 +24,7 @@ addpath(genpath(fullfile(matRoot,'plotting')));
 cd(matRoot);
 
 
-%% Open a Data File
+% Open a Data File
 
 % declare subject for session list
 subject = 'joule';
@@ -54,10 +54,10 @@ sessionList = sessionList(neuronLogical);
 epochWindow = [-500 : 500];
 
 
-%% Begin for loop for all sessions
+% Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 1;
+sessionInd = 4;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -65,8 +65,6 @@ session = sessionList{sessionInd};
 
 % Sort trials based on trial type criteria
 
-%side = {'left'};
-%alignEvent = 'targOn';
 outcome = {'saccToTarget'};
 Kernel.method = 'postsynaptic potential';
 Kernel.growth = 1;
@@ -75,58 +73,30 @@ Kernel.decay = 20;
 sdfAll = [];
 alignEvent = 'targOn';
 
-side = {'left'};
-trialsLeft = mem_trial_selection(trialData, outcome, side);
-alignLeft = trialData.(alignEvent)(trialsLeft);
-
-%side = {'right'};
-%trialsRight = mem_trial_selection(trialData, outcome, side);
-%alignRight = trialData.(alignEvent)(trialsRight);
+side = {'right'};
+trialsRight = mem_trial_selection(trialData, outcome, side);
+alignRight = trialData.(alignEvent)(trialsRight);
 
 [unitIndex, unitArrayNew] = neuronexus_plexon_mapping(SessionData.spikeUnitArray, 32);
 
     for i = 1 : length(unitArrayNew);
             iUnitIndex = unitIndex(i);
-            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsLeft, iUnitIndex), alignLeft);
-            sdfLeft = spike_density_function(alignedRasters, Kernel);
-            sdfMeanLeft = nanmean(sdfLeft(:,epochWindow + alignmentIndex), 1);
-            sdfAll = [sdfAll ; sdfMeanLeft];
-%                for i = 1 : length(unitIndex);
-
-%                    Ri = R(i);
-%                    R = corrcoef(Ri);
-%                    RAll = [RAll ; R];
-%                end
-            
-%            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsRight, iUnitIndex), alignRight);
-%           sdfRight = spike_density_function(alignedRasters, Kernel);
-%            sdfMeanRight = nanmean(sdfRight, 1);
-%            sdfMeanRightEpoch = sdfMeanRight(epochWindow + alignmentIndex);
-%            sdfAll = [sdfAll ; sdfMeanRight(epochWindow + alignmentIndex)];
-            
+            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsRight, iUnitIndex), alignRight);
+            sdfRight = spike_density_function(alignedRasters, Kernel);
+            sdfMeanRight = nanmean(sdfRight(:,epochWindow + alignmentIndex), 1);
+            sdfAll = [sdfAll ; sdfMeanRight];
     end
 sdfAll = (sdfAll');
 unitArrayNew = (unitArrayNew'); %why flipped?
 
-corrcoefAll = [];
+
+% Find the correlation coefficient across channels
+corrcoefAll = corrcoef(sdfAll(:,:));
+r_squared = (corrcoefAll).^2;
 
 
-j = corrcoef(ch09)
-%%
 
-    for j = 1 : length(unitIndex);
-        jcorrVal = corrcoef(sdfAll(i))
-        [corrcoefAll] = (sdfAll, jcorrVal)
-        sdfAll = sdfAll
-    end
-
-%R = corrcoef(sdfMeanLeftEpoch,);
-
-%% Plot all SDFs
-plotWindow = [-500 : 500];
-
-
-figure(1)
-plot(x, sdfAll(:, alignmentIndex + plotWindow), 'color', 'k', 'lineWidth', 3)
-
-ylim([0 1.1* max(sdfAll)])
+imagesc(r_squared);
+cb = colorbar;
+ylabel(cb, 'r^2');
+title('jp064n01 targOn right');

@@ -49,7 +49,7 @@ trialData = rmfield(trialData, 'SessionData');
 
 
 
-% if requesting to load multi-unit (collapsing all units per channel:
+% if requesting to load multi-unit (collapsing all units per channel):
 if multiUnit
     if ismember('spikeData', variables)
     [SessionData.spikeUnitArray, trialData.spikeData] = convert_to_multiunit(SessionData.spikeUnitArray, trialData.spikeData);
