@@ -57,7 +57,7 @@ epochWindow = [-500 : 500];
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 19;
+sessionInd = 1;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -87,8 +87,9 @@ alignRight = trialData.(alignEvent)(trialsRight);
             sdfAll = [sdfAll ; sdfMeanRight];
     end
 sdfAll = (sdfAll');
-unitArrayNew = (unitArrayNew'); %why flipped?
+unitArrayNew = (unitArrayNew'); 
 
+%%
 
 % Find the correlation coefficient across channels
 corrcoefAll = corrcoef(sdfAll(:,:));

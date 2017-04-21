@@ -21,7 +21,7 @@ addpath(genpath(fullfile(matRoot,'neural')));
 addpath(genpath(fullfile(matRoot,'plotting')));
 
 % Make this project directory your working directory
-cd(matRoot)
+cd(matRoot);
 
 
 % Open a Data File
@@ -59,13 +59,13 @@ sessionList = sessionList(neuronLogical);
 sessionInd = 1;
 session = sessionList{sessionInd};
 
-[trialData, SessionData] = load_data(subject, session, dataRoot)
+[trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
 
 
 % Sort trials based on trial type criteria
 
 outcome = {'saccToTarget'};
-side = {'left'};
+side = {'right'};
 
 
 trials = mem_trial_selection(trialData, outcome, side);
@@ -74,7 +74,7 @@ trials = mem_trial_selection(trialData, outcome, side);
 % Extract spike data (as aligned rasters) for a unit, aligned on event/epoch
 
 % Set up the variables
-unitIndex = 9;
+unitIndex = 1;
 alignEvent = 'responseOnset';
 alignList = trialData.(alignEvent)(trials); % on which trials alignEvent was 'targOn' in trialData
 epochWindow = [-500:500]; 
@@ -91,7 +91,7 @@ nTrial = length(trials);
 
 
 % Open a plot and tell matlab to hold the axes so we can plot multiple things on it
-%figure(1)
+figure(1)
 colormap(flipud(gray))
 hold all;
 
