@@ -51,13 +51,13 @@ eegLogical      = mData{5};
 
 % Extract only sessions with spike data
 sessionList = sessionList(neuronLogical);
-epochWindow = [-500 : 500];
+epochWindow = [-300 : 200];
 
 
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 1;
+sessionInd = 19;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -87,17 +87,35 @@ alignRight = trialData.(alignEvent)(trialsRight);
             sdfAll = [sdfAll ; sdfMeanRight];
     end
 sdfAll = (sdfAll');
-unitArrayNew = (unitArrayNew'); 
+unitArrayNew = (unitArrayNew'); %why flipped?
 
-%%
 
 % Find the correlation coefficient across channels
 corrcoefAll = corrcoef(sdfAll(:,:));
 r_squared = (corrcoefAll).^2;
 
-
-
 imagesc(r_squared);
+set(gcf, 'units', 'norm', 'position', [0 0 .5 .9])
+
+
+xlabel('Channels (Descending)', 'fontsize', 18);
+xticklabels = {'ch09', 'ch010', 'ch11', 'ch12', 'ch13', 'ch14', 'ch15', 'ch16',...
+    'ch25', 'ch26', 'ch27', 'ch28', 'ch29', 'ch30', 'ch31', 'ch32',...
+    'ch17', 'ch18', 'ch19', 'ch20', 'ch21', 'ch22', 'ch23', 'ch24',...
+    'ch01', 'ch02', 'ch03', 'ch04', 'ch05', 'ch06', 'ch07', 'ch08'};
+xticks = linspace(1, size(sdfAll', 1), numel(xticklabels));
+set(gca, 'XTick', xticks, 'XTickLabel', flipud(xticklabels(:)'))
+
+yticklabels = {};
+yticks = linspace(1, size(sdfAll', 1), numel(yticklabels));
+set(gca, 'YTick', yticks, 'YTickLabel', flipud(yticklabels(:)'))
+
+box off;
+
 cb = colorbar;
-ylabel(cb, 'r^2');
-title('jp125n01 responseOnset right');
+ylabel(cb, 'r^2', 'fontsize', 18);
+title('Correlation Across Channels', 'fontsize', 24);
+set(cb, 'units', 'norm', 'Position', [.9 .05 .02 .9],  'fontsize', 14);
+
+currentaxis = gca;
+set(currentaxis, 'Position', [.0 .05 .9 .9]);

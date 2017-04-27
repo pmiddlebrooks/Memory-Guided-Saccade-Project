@@ -75,7 +75,7 @@ trials = mem_trial_selection(trialData, outcome, side);
 
 % Set up the variables
 unitIndex = 1;
-alignEvent = 'responseOnset';
+alignEvent = 'targOn';
 alignList = trialData.(alignEvent)(trials); % on which trials alignEvent was 'targOn' in trialData
 epochWindow = [-500:500]; 
     
