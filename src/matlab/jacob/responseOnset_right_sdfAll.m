@@ -55,7 +55,7 @@ epochWindow = [-300 : 200];
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 1;
+sessionInd = 3;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);

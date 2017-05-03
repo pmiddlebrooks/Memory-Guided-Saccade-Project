@@ -26,10 +26,10 @@ cd(matRoot);
 % Open a Data File
 
 % declare subject for session list
-subject = 'joule';
+subject = 'broca';
 
 % Open the list of memory guided saccade sessions
-fid = fopen(fullfile(dataRoot,subject, ['mem_sessions_',subject,'.csv']));
+fid = fopen(fullfile(dataRoot,subject, ['del_sessions_',subject,'.csv']));
 
 % Headers for data type
 nCol = 5;
@@ -55,7 +55,7 @@ epochWindow = [-100 : 400];
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 19;
+sessionInd = 14;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -99,18 +99,14 @@ unitArrayNew = (unitArrayNew');
 % set up plot variable
 plotWindow = [-100 : 400];
 
-
-
-
-
 imagesc(sdfAll')
 set(gcf, 'units', 'norm', 'position', [0 0 .5 .9]);
 
 
-title('jp125n01 targOn right', 'fontsize', 24);
+title(sprintf('%s', session, ' targOn right'), 'fontsize', 24);
 
 
-xlabel('Time (ms) from Saccade', 'fontsize', 18);
+xlabel('Time (ms) from Target Onset', 'fontsize', 16);
 ylabel('Channels (Descending)', 'fontsize', 18);
 
 currentaxis = gca;

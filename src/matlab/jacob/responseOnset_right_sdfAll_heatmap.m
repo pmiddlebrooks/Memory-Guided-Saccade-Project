@@ -55,7 +55,7 @@ epochWindow = [-300 : 200];
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 19;
+sessionInd = 5;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -99,18 +99,14 @@ unitArrayNew = (unitArrayNew');
 % set up plot variable
 plotWindow = [-300 : 200];
 
-
-
-
-
 imagesc(sdfAll')
 set(gcf, 'units', 'norm', 'position', [0 0 .5 .9]);
 
 
-title('jp125n01 responseOnset right', 'fontsize', 24);
+title(sprintf('%s', session, ' responseOnset right'), 'fontsize', 24);
 
 
-xlabel('Time (ms) from Saccade', 'fontsize', 18);
+xlabel('Time (ms) from Saccade', 'fontsize', 16);
 ylabel('Channels (Descending)', 'fontsize', 18);
 
 currentaxis = gca;
