@@ -1,4 +1,4 @@
-%% Establish working environment and and matlab paths
+% Establish working environment and and matlab paths
 
 % Which computer are you on?
 if isdir('/Volumes/HD-1/Users/paulmiddlebrooks/')
@@ -23,8 +23,7 @@ addpath(genpath(fullfile(matRoot,'plotting')));
 % Make this project directory your working directory
 cd(matRoot);
 
-
-%% Open a Data File
+% Open a Data File
 
 % declare subject for session list
 subject = 'joule';
@@ -51,13 +50,13 @@ eegLogical      = mData{5};
 
 % Extract only sessions with spike data
 sessionList = sessionList(neuronLogical);
-epochWindow = [-500 : 500];
+epochWindow = [-300 : 200];
 
 
-%% Begin for loop for all sessions
+% Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 1;
+sessionInd = 19;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -65,68 +64,67 @@ session = sessionList{sessionInd};
 
 % Sort trials based on trial type criteria
 
-%side = {'left'};
-%alignEvent = 'targOn';
 outcome = {'saccToTarget'};
 Kernel.method = 'postsynaptic potential';
 Kernel.growth = 1;
 Kernel.decay = 20;
 
 sdfAll = [];
-alignEvent = 'targOn';
+%alignEvent = 'targOn';
+alignEvent = 'responseOnset';
 
-side = {'left'};
-trialsLeft = mem_trial_selection(trialData, outcome, side);
-alignLeft = trialData.(alignEvent)(trialsLeft);
+% sidename = 'left';
+sidename = 'right';
+side = {sidename};
 
-%side = {'right'};
-%trialsRight = mem_trial_selection(trialData, outcome, side);
-%alignRight = trialData.(alignEvent)(trialsRight);
+trialsSide = mem_trial_selection(trialData, outcome, side);
+alignSide = trialData.(alignEvent)(trialsSide);
 
 [unitIndex, unitArrayNew] = neuronexus_plexon_mapping(SessionData.spikeUnitArray, 32);
 
     for i = 1 : length(unitArrayNew);
             iUnitIndex = unitIndex(i);
-            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsLeft, iUnitIndex), alignLeft);
-            sdfLeft = spike_density_function(alignedRasters, Kernel);
-            sdfMeanLeft = nanmean(sdfLeft(:,epochWindow + alignmentIndex), 1);
-            sdfAll = [sdfAll ; sdfMeanLeft];
-%                for i = 1 : length(unitIndex);
-
-%                    Ri = R(i);
-%                    R = corrcoef(Ri);
-%                    RAll = [RAll ; R];
-%                end
-            
-%            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsRight, iUnitIndex), alignRight);
-%           sdfRight = spike_density_function(alignedRasters, Kernel);
-%            sdfMeanRight = nanmean(sdfRight, 1);
-%            sdfMeanRightEpoch = sdfMeanRight(epochWindow + alignmentIndex);
-%            sdfAll = [sdfAll ; sdfMeanRight(epochWindow + alignmentIndex)];
-            
+            [alignedRasters, alignmentIndex] = spike_to_raster(trialData.spikeData(trialsSide, iUnitIndex), alignSide);
+            sdfSide = spike_density_function(alignedRasters, Kernel);
+            sdfMeanSide = nanmean(sdfSide(:,epochWindow + alignmentIndex), 1);
+            sdfAll = [sdfAll ; sdfMeanSide];
     end
-sdfAll = (sdfAll');
-unitArrayNew = (unitArrayNew'); %why flipped?
-
-corrcoefAll = [];
+sdfAll = fliplr(sdfAll');
+unitArrayNew = flipud(unitArrayNew'); 
 
 
-j = corrcoef(ch09)
-%%
+% Find the correlation coefficient across channels
+corrcoefAll = corrcoef(sdfAll(:,:));
+r_squared = (corrcoefAll).^2;
+r_squared(r_squared < .5) = nan;
+imagesc(r_squared);
+myMap = colormap('copper');
+colormap(flipud(myMap));
 
-    for j = 1 : length(unitIndex);
-        jcorrVal = corrcoef(sdfAll(i))
-        [corrcoefAll] = (sdfAll, jcorrVal)
-        sdfAll = sdfAll
-    end
+% figure dimensions and labels
+set(gcf, 'units', 'norm', 'position', [0 0 .5 .9])
 
-%R = corrcoef(sdfMeanLeftEpoch,);
+xlabel('Channels (Descending)', 'fontsize', 18);
+xticklabels = {'ch32', 'ch31', 'ch30', 'ch29', 'ch28', 'ch27', 'ch26', 'ch25',...
+    'ch24', 'ch23', 'ch22', 'ch21', 'ch20', 'ch19', 'ch18', 'ch17',...
+    'ch16', 'ch15', 'ch14', 'ch13', 'ch12', 'ch11', 'ch10', 'ch09',...
+    'ch08', 'ch07', 'ch06', 'ch05', 'ch04', 'ch03', 'ch02', 'ch01'};
+xticks = linspace(1, size(sdfAll', 1), numel(xticklabels));
+set(gca, 'XTick', xticks, 'XTickLabel', flipud(xticklabels(:)'))
 
-%% Plot all SDFs
-plotWindow = [-500 : 500];
+yticklabels = {};
+yticks = linspace(1, size(sdfAll', 1), numel(yticklabels));
+set(gca, 'YTick', yticks, 'YTickLabel', flipud(yticklabels(:)'))
 
+box off;
 
-figure(1)
-plot(x, sdfAll(:, alignmentIndex + plotWindow), 'color', 'k', 'lineWidth', 3)
+% colorbar dimensions and labels
+cb = colorbar;
+ylabel(cb, 'r^2', 'fontsize', 18);
+title(sprintf('%s', session,'  ', alignEvent, '  ', sidename), 'fontsize', 24);
 
-ylim([0 1.1* max(sdfAll)])
+set(cb, 'units', 'norm', 'Position', [.9 .05 .02 .9],  'fontsize', 14);
+
+% window dimensions
+currentaxis = gca;
+set(currentaxis, 'Position', [.0 .05 .9 .9]);

@@ -27,10 +27,10 @@ cd(matRoot);
 % Open a Data File
 
 % declare subject for session list
-subject = 'joule';
+subject = 'broca';
 
 % Open the list of memory guided saccade sessions
-fid = fopen(fullfile(dataRoot,subject, ['mem_sessions_',subject,'.csv']));
+fid = fopen(fullfile(dataRoot,subject, ['del_sessions_',subject,'.csv']));
 
 % Headers for data type
 nCol = 5;
@@ -57,7 +57,7 @@ epochWindow = [-300 : 200];
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 2;
+sessionInd = 33;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -73,7 +73,9 @@ Kernel.decay = 20;
 sdfAll = [];
 alignEvent = 'responseOnset';
 
-side = {'right'};
+sidename = 'right';
+side = {sidename};
+
 trialsRight = mem_trial_selection(trialData, outcome, side);
 alignRight = trialData.(alignEvent)(trialsRight);
 
@@ -93,10 +95,13 @@ unitArrayNew = (unitArrayNew'); %why flipped?
 % Find the correlation coefficient across channels
 corrcoefAll = corrcoef(sdfAll(:,:));
 r_squared = (corrcoefAll).^2;
-
-
+r_squared(r_squared < .5) = nan;
 imagesc(r_squared);
+myMap = colormap('bone');
+colormap(flipud(myMap));
+
 set(gcf, 'units', 'norm', 'position', [0 0 .5 .9])
+
 
 
 xlabel('Channels (Descending)', 'fontsize', 18);
@@ -115,7 +120,7 @@ box off;
 
 cb = colorbar;
 ylabel(cb, 'r^2', 'fontsize', 18);
-title('Correlation Across Channels', 'fontsize', 24);
+title(sprintf('%s', session, ' responseOnset', sidename), 'fontsize', 24);
 set(cb, 'units', 'norm', 'Position', [.9 .05 .02 .9],  'fontsize', 14);
 
 currentaxis = gca;

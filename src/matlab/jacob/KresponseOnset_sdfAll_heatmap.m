@@ -1,4 +1,4 @@
-load('cosmanZinke-MGMUA.mat')
+load('muaData-HeGaDa-170614.mat')
 
 for i = 1:numel(movSDFs),
 thisSDF = movSDFs{1, i};
