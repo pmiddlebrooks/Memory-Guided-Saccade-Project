@@ -1,5 +1,5 @@
 % setup variables
-dot_size = 15;
+dot_size = 100;
 hold on;
 
 %
@@ -931,8 +931,8 @@ jp125n03ch01 = scatter3(jp125n03ML, jp125n03AP, jp125n03depth +    0, dot_size, 
 
 
 % plot chamber cylinder
-[x1,y1,z1]=cylinder(8.5,50);
-[x2,y2,z2]=cylinder(8.5,50);
+[x1,y1,z1]=cylinder(9.5,50);
+[x2,y2,z2]=cylinder(9.5,50);
 
 z1=z1 + 0;
 z2= z2 - 7000;
@@ -941,6 +941,8 @@ s2=surf(x2,y2,z2);
 
 % setup plot dimensions/variables
 grid on;
+set(gca,'LineWidth',3)
+box on;
 axis([-10, 10, -10, 10, -7000, 1000])
 title('Jo LFEF CCM Penetrations', 'fontsize', 24);
 

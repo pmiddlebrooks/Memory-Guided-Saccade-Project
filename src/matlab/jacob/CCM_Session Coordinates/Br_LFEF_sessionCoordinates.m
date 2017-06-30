@@ -1,8 +1,6 @@
 % setup variables
-dot_size = 15;
+dot_size = 100;
 hold on;
-
-
 
 
 %
@@ -138,18 +136,81 @@ bp197n02ch01 = scatter3(bp197n02ML, bp197n02AP, bp197n02depth +    0, dot_size, 
 % bp202n02
 %
 
+% variables
+bp202n02depth = -3500;
+bp202n02AP = -4;
+bp202n02ML = -4.5;
+
+% session depth + coordinates
+bp202n02top = [bp202n02ML, bp202n02AP, 0];
+bp202n02bottom = [bp202n02ML, bp202n02AP, bp202n02depth];
+bp202n02 = [bp202n02top;bp202n02bottom];
+plot3(bp202n02(:,1),bp202n02(:,2),bp202n02(:,3),'k')
+
+bp202n02ch08 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth + 1400, dot_size, 'r', 'filled');
+bp202n02ch07 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth + 1200, dot_size, 'r', 'filled');
+bp202n02ch06 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth + 1000, dot_size, 'r', 'filled');
+bp202n02ch05 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth +  800, dot_size, 'r', 'filled');
+bp202n02ch04 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth +  600, dot_size, 'r', 'filled');
+bp202n02ch03 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth +  400, dot_size, 'r', 'filled');
+bp202n02ch02 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth +  200, dot_size, 'r', 'filled');
+bp202n02ch01 = scatter3(bp202n02ML, bp202n02AP, bp202n02depth +    0, dot_size, 'r', 'filled');
+
 
 %
 % bp203n02
 %
 
+% variables
+bp203n02depth = -5100;
+bp203n02AP = -3.5;
+bp203n02ML = -3.5;
+
+% session depth + coordinates
+bp203n02top = [bp203n02ML, bp203n02AP, 0];
+bp203n02bottom = [bp203n02ML, bp203n02AP, bp203n02depth];
+bp203n02 = [bp203n02top;bp203n02bottom];
+plot3(bp203n02(:,1),bp203n02(:,2),bp203n02(:,3),'k')
+
+bp203n02ch08 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth + 1400, dot_size, 'r', 'filled');
+bp203n02ch07 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth + 1200, dot_size, 'r', 'filled');
+bp203n02ch06 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth + 1000, dot_size, 'r', 'filled');
+bp203n02ch05 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth +  800, dot_size, 'r', 'filled');
+bp203n02ch04 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth +  600, dot_size, 'r', 'filled');
+bp203n02ch03 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth +  400, dot_size, 'r', 'filled');
+bp203n02ch02 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth +  200, dot_size, 'r', 'filled');
+bp203n02ch01 = scatter3(bp203n02ML, bp203n02AP, bp203n02depth +    0, dot_size, 'r', 'filled');
+
+
 %
 % bp205n02
 %
 
+
 %
 % bp217n02
 %
+
+% variables
+bp217n02depth = -5400;
+bp217n02AP = -4;
+bp217n02ML = -5;
+
+% session depth + coordinates
+bp217n02top = [bp217n02ML, bp217n02AP, 0];
+bp217n02bottom = [bp217n02ML, bp217n02AP, bp217n02depth];
+bp217n02 = [bp217n02top;bp217n02bottom];
+plot3(bp217n02(:,1),bp217n02(:,2),bp217n02(:,3),'k')
+
+bp217n02ch08 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth + 1400, dot_size, 'r', 'filled');
+bp217n02ch07 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth + 1200, dot_size, 'r', 'filled');
+bp217n02ch06 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth + 1000, dot_size, 'r', 'filled');
+bp217n02ch05 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth +  800, dot_size, 'r', 'filled');
+bp217n02ch04 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth +  600, dot_size, 'r', 'filled');
+bp217n02ch03 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth +  400, dot_size, 'r', 'filled');
+bp217n02ch02 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth +  200, dot_size, 'r', 'filled');
+bp217n02ch01 = scatter3(bp217n02ML, bp217n02AP, bp217n02depth +    0, dot_size, 'r', 'filled');
+
 
 %
 % bp218n02
@@ -159,21 +220,126 @@ bp197n02ch01 = scatter3(bp197n02ML, bp197n02AP, bp197n02depth +    0, dot_size, 
 % bp220n02
 %
 
+% variables
+bp220n02depth = -3500;
+bp220n02AP = -3;
+bp220n02ML = -6;
+
+% session depth + coordinates
+bp220n02top = [bp220n02ML, bp220n02AP, 0];
+bp220n02bottom = [bp220n02ML, bp220n02AP, bp220n02depth];
+bp220n02 = [bp220n02top;bp220n02bottom];
+plot3(bp220n02(:,1),bp220n02(:,2),bp220n02(:,3),'k')
+
+bp220n02ch08 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth + 1400, dot_size, 'r', 'filled');
+bp220n02ch07 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth + 1200, dot_size, 'r', 'filled');
+bp220n02ch06 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth + 1000, dot_size, 'r', 'filled');
+bp220n02ch05 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth +  800, dot_size, 'r', 'filled');
+bp220n02ch04 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth +  600, dot_size, 'r', 'filled');
+bp220n02ch03 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth +  400, dot_size, 'r', 'filled');
+bp220n02ch02 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth +  200, dot_size, 'r', 'filled');
+bp220n02ch01 = scatter3(bp220n02ML, bp220n02AP, bp220n02depth +    0, dot_size, 'r', 'filled');
+
+
 %
 % bp221n02
 %
+
+% variables
+bp221n02depth = -4000;
+bp221n02AP = -6;
+bp221n02ML = -4;
+
+% session depth + coordinates
+bp221n02top = [bp221n02ML, bp221n02AP, 0];
+bp221n02bottom = [bp221n02ML, bp221n02AP, bp221n02depth];
+bp221n02 = [bp221n02top;bp221n02bottom];
+plot3(bp221n02(:,1),bp221n02(:,2),bp221n02(:,3),'k')
+
+bp221n02ch08 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth + 1400, dot_size, 'r', 'filled');
+bp221n02ch07 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth + 1200, dot_size, 'r', 'filled');
+bp221n02ch06 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth + 1000, dot_size, 'r', 'filled');
+bp221n02ch05 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth +  800, dot_size, 'r', 'filled');
+bp221n02ch04 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth +  600, dot_size, 'r', 'filled');
+bp221n02ch03 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth +  400, dot_size, 'r', 'filled');
+bp221n02ch02 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth +  200, dot_size, 'r', 'filled');
+bp221n02ch01 = scatter3(bp221n02ML, bp221n02AP, bp221n02depth +    0, dot_size, 'r', 'filled');
+
 
 %
 % bp222n02
 %
 
+% variables
+bp222n02depth = -5300;
+bp222n02AP = -6;
+bp222n02ML = -4;
+
+% session depth + coordinates
+bp222n02top = [bp222n02ML, bp222n02AP, 0];
+bp222n02bottom = [bp222n02ML, bp222n02AP, bp222n02depth];
+bp222n02 = [bp222n02top;bp222n02bottom];
+plot3(bp222n02(:,1),bp222n02(:,2),bp222n02(:,3),'k')
+
+bp222n02ch08 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth + 1400, dot_size, 'r', 'filled');
+bp222n02ch07 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth + 1200, dot_size, 'r', 'filled');
+bp222n02ch06 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth + 1000, dot_size, 'r', 'filled');
+bp222n02ch05 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth +  800, dot_size, 'r', 'filled');
+bp222n02ch04 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth +  600, dot_size, 'r', 'filled');
+bp222n02ch03 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth +  400, dot_size, 'r', 'filled');
+bp222n02ch02 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth +  200, dot_size, 'r', 'filled');
+bp222n02ch01 = scatter3(bp222n02ML, bp222n02AP, bp222n02depth +    0, dot_size, 'r', 'filled');
+
+
 %
 % bp224n02
 %
 
+% variables
+bp224n02depth = -5000;
+bp224n02AP = -5;
+bp224n02ML = -5;
+
+% session depth + coordinates
+bp224n02top = [bp224n02ML, bp224n02AP, 0];
+bp224n02bottom = [bp224n02ML, bp224n02AP, bp224n02depth];
+bp224n02 = [bp224n02top;bp224n02bottom];
+plot3(bp224n02(:,1),bp224n02(:,2),bp224n02(:,3),'k')
+
+bp224n02ch08 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth + 1400, dot_size, 'r', 'filled');
+bp224n02ch07 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth + 1200, dot_size, 'r', 'filled');
+bp224n02ch06 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth + 1000, dot_size, 'r', 'filled');
+bp224n02ch05 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth +  800, dot_size, 'r', 'filled');
+bp224n02ch04 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth +  600, dot_size, 'r', 'filled');
+bp224n02ch03 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth +  400, dot_size, 'r', 'filled');
+bp224n02ch02 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth +  200, dot_size, 'r', 'filled');
+bp224n02ch01 = scatter3(bp224n02ML, bp224n02AP, bp224n02depth +    0, dot_size, 'r', 'filled');
+
+
 %
 % bp225n02
 %
+
+% variables
+bp225n02depth = -5500;
+bp225n02AP = -6;
+bp225n02ML = -4;
+
+% session depth + coordinates
+bp225n02top = [bp225n02ML, bp225n02AP, 0];
+bp225n02bottom = [bp225n02ML, bp225n02AP, bp225n02depth];
+bp225n02 = [bp225n02top;bp225n02bottom];
+plot3(bp225n02(:,1),bp225n02(:,2),bp225n02(:,3),'k')
+
+bp225n02ch08 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth + 1400, dot_size, 'r', 'filled');
+bp225n02ch07 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth + 1200, dot_size, 'r', 'filled');
+bp225n02ch06 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth + 1000, dot_size, 'r', 'filled');
+bp225n02ch05 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth +  800, dot_size, 'r', 'filled');
+bp225n02ch04 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth +  600, dot_size, 'r', 'filled');
+bp225n02ch03 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth +  400, dot_size, 'r', 'filled');
+bp225n02ch02 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth +  200, dot_size, 'r', 'filled');
+bp225n02ch01 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth +    0, dot_size, 'r', 'filled');
+
 
 %
 % bp228n02
@@ -1102,8 +1268,8 @@ bp247n02ch01 = scatter3(bp247n02ML, bp247n02AP, bp247n02depth +    0, dot_size, 
 
 
 % plot chamber cylinder
-[x1,y1,z1]=cylinder(8.5,50);
-[x2,y2,z2]=cylinder(8.5,50);
+[x1,y1,z1]=cylinder(9.5,50);
+[x2,y2,z2]=cylinder(9.5,50);
 
 z1=z1 + 0;
 z2= z2 - 7000;
@@ -1112,7 +1278,9 @@ s2=surf(x2,y2,z2);
 
 % setup plot dimensions/variables
 grid on;
+set(gca,'LineWidth',3)
+box on;
 axis([-10, 10, -10, 10, -7000, 1000])
-title('Br LFEF CCM Penetrations', 'fontsize', 24);
+title('Br LFEF Penetrations', 'fontsize', 24);
 
 set(gcf, 'units', 'norm', 'position', [0 0 .5 .9])
