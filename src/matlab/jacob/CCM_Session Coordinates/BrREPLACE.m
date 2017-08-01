@@ -61,3 +61,52 @@ plot3(bpREPLACE(:,1),bpREPLACE(:,2),bpREPLACE(:,3),'k')
 
 
 bpREPLACEch01 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +    0, dot_size, 'r', 'filled');
+
+
+
+% 100 um spacing
+
+% variables
+bpREPLACEdepth = -7500;
+bpREPLACEAP = -6.5;
+bpREPLACEML = -5;
+
+% session depth + coordinates
+bpREPLACEtop = [bpREPLACEML, bpREPLACEAP, 0];
+bpREPLACEbottom = [bpREPLACEML, bpREPLACEAP, bpREPLACEdepth];
+bpREPLACE = [bpREPLACEtop;bpREPLACEbottom];
+plot3(bpREPLACE(:,1),bpREPLACE(:,2),bpREPLACE(:,3),'k')
+
+
+bpREPLACEch32 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 3100, dot_size, 'r', 'filled');
+bpREPLACEch31 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 3000, dot_size, 'r', 'filled');
+bpREPLACEch30 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2900, dot_size, 'r', 'filled');
+bpREPLACEch29 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2800, dot_size, 'r', 'filled');
+bpREPLACEch28 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2700, dot_size, 'r', 'filled');
+bpREPLACEch27 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2600, dot_size, 'r', 'filled');
+bpREPLACEch26 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2500, dot_size, 'r', 'filled');
+bpREPLACEch25 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2400, dot_size, 'r', 'filled');
+bpREPLACEch24 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2300, dot_size, 'r', 'filled');
+bpREPLACEch23 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2200, dot_size, 'r', 'filled');
+bpREPLACEch22 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2100, dot_size, 'r', 'filled');
+bpREPLACEch21 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 2000, dot_size, 'r', 'filled');
+bpREPLACEch20 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1900, dot_size, 'r', 'filled');
+bpREPLACEch19 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1800, dot_size, 'r', 'filled');
+bpREPLACEch18 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1700, dot_size, 'r', 'filled');
+bpREPLACEch17 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1600, dot_size, 'r', 'filled');
+bpREPLACEch16 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1500, dot_size, 'r', 'filled');
+bpREPLACEch15 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1400, dot_size, 'r', 'filled');
+bpREPLACEch14 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1300, dot_size, 'r', 'filled');
+bpREPLACEch13 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1200, dot_size, 'r', 'filled');
+bpREPLACEch12 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1100, dot_size, 'r', 'filled');
+bpREPLACEch11 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth + 1000, dot_size, 'r', 'filled');
+bpREPLACEch10 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  900, dot_size, 'r', 'filled');
+bpREPLACEch09 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  800, dot_size, 'r', 'filled');
+bpREPLACEch08 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  700, dot_size, 'r', 'filled');
+bpREPLACEch07 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  600, dot_size, 'r', 'filled');
+bpREPLACEch06 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  500, dot_size, 'r', 'filled');
+bpREPLACEch05 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  400, dot_size, 'r', 'filled');
+bpREPLACEch04 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  300, dot_size, 'r', 'filled');
+bpREPLACEch03 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  200, dot_size, 'r', 'filled');
+bpREPLACEch02 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +  100, dot_size, 'r', 'filled');
+bpREPLACEch01 = scatter3(bpREPLACEML, bpREPLACEAP, bpREPLACEdepth +    0, dot_size, 'r', 'filled');

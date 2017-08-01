@@ -13,7 +13,11 @@ for ir = 1:size(inCell,1),
 %     if mod(ir,1000) == 0,
 %         fprintf('Aligning row %d of %d\n',ir,size(inCell,1));
 %     end
-    outMat(ir,(maxZero-indVect(ir)+1):(maxZero+allLengths(ir)-indVect(ir))) = inCell{ir};
+    if isnan(indVect(ir))
+        outMat(ir,:) = nan;
+    else
+        outMat(ir,(maxZero-indVect(ir)+1):(maxZero+allLengths(ir)-indVect(ir))) = inCell{ir};
+    end
 end
 while sum(isnan(outMat(:,end))) == size(outMat,1),
     outMat = outMat(:,1:(end-1));

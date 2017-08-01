@@ -1,9 +1,9 @@
-clearvars;
+clearvars; % FSL?
 rootDir = '/Volumes/SchallLab/Users/Wolf/ephys_db';
 
 
 monks = {'Helmholtz','Gauss','Darwin'}; % Which monks to check for
-targRF = [180, 0, 0]; % RFs of each (contra to their chamber)
+targRF = [180, 0, 0]; % RFs of each (contra to their chamber), 0 = right 180 = left
 
 % Initialize some variables
 allSpikes = [];
@@ -15,9 +15,9 @@ visSDFCell = {};
 for im = 1:length(monks),
     fprintf('Working on data for %s: ',monks{im});
     
-    % Get this monk sessions
+    % Get this monk's sessions
     monkFold = sprintf('%s/%s',rootDir,monks{im});
-    monkSess = dir(sprintf('%s/201*',monkFold));
+    monkSess = dir(sprintf('%s/201*',monkFold)); % * wildcard, search for anything after preceding value
     
     % Loop through sessions
     for is = 1:length(monkSess),
@@ -35,7 +35,7 @@ for im = 1:length(monks),
         % Loop through channels once to check for MG sessions
         ic = 1;
         hasMG = 0;
-        while (ic <= maxChans && hasMG == 0),
+        while (ic <= maxChans && hasMG == 0), % elaborate
             chanName = num2str(ic); if length(chanName) == 1, chanName = ['0',chanName]; end
             chanUnits = dir(sprintf('%s/%s/DSP/DSP%s*',monkFold,monkSess(is).name,chanName));
             chanSpks = [];
@@ -123,16 +123,16 @@ for im = 1:length(monks),
             [visZero{cellfun(@isempty,visZero)}] = deal(nan); visZero = cell2mat(visZero);
             visAlign = klAlignv2(tmpVisCell,visZero);
             visTimes = nanmean(klAlignv2(tmpVisTimes,visZero),1);
-            visSDFTimes{im,is} = visTimes(visTimes >= -300 & visTimes <= 500);
-            visSDFs{im,is} = visAlign(:,visTimes >= -300 & visTimes <= 500);
+            visSDFTimes{im,is} = visTimes(visTimes >= -100 & visTimes <= 400);
+            visSDFs{im,is} = visAlign(:,visTimes >= -100 & visTimes <= 400);
         end
          if any(~cellfun(@isempty,tmpMovCell)),
             movZero = cellfun(@(x) find(abs(x) == min(abs(x))),tmpMovTimes,'UniformOutput',0);
             [movZero{cellfun(@isempty,movZero)}] = deal(nan); movZero = cell2mat(movZero);
             movAlign = klAlignv2(tmpMovCell,movZero);
             movTimes = nanmean(klAlignv2(tmpMovTimes,movZero),1);
-            movSDFTimes{im,is} = movTimes(movTimes >= -500 & movTimes <= 300);
-            movSDFs{im,is} = movAlign(:,movTimes >= -500 & movTimes <= 300);
+            movSDFTimes{im,is} = movTimes(movTimes >= -300 & movTimes <= 200);
+            movSDFs{im,is} = movAlign(:,movTimes >= -300 & movTimes <= 200);
          end
     end
 end

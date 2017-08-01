@@ -1,5 +1,5 @@
 % setup variables
-dot_size = 100;
+dot_size = 50;
 hold on;
 
 %
@@ -15,7 +15,11 @@ jp054n02ML = 4;
 jp054n02top = [jp054n02ML, jp054n02AP, 0];
 jp054n02bottom = [jp054n02ML, jp054n02AP, jp054n02depth];
 jp054n02 = [jp054n02top;jp054n02bottom];
-plot3(jp054n02(:,1),jp054n02(:,2),jp054n02(:,3),'k')
+plot3(jp054n02(:,1),jp054n02(:,2),jp054n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp054n02ML, jp054n02AP, 0, '  jp054n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp054n02ch32 = scatter3(jp054n02ML, jp054n02AP, jp054n02depth + 3100, dot_size, 'r', 'filled');
 jp054n02ch31 = scatter3(jp054n02ML, jp054n02AP, jp054n02depth + 3000, dot_size, 'r', 'filled');
@@ -50,6 +54,7 @@ jp054n02ch03 = scatter3(jp054n02ML, jp054n02AP, jp054n02depth +  200, dot_size, 
 jp054n02ch02 = scatter3(jp054n02ML, jp054n02AP, jp054n02depth +  100, dot_size, 'r', 'filled');
 jp054n02ch01 = scatter3(jp054n02ML, jp054n02AP, jp054n02depth +    0, dot_size, 'r', 'filled');
 
+
 %
 % jp060n02
 %
@@ -63,7 +68,10 @@ jp060n02ML = 4;
 jp060n02top = [jp060n02ML, jp060n02AP, 0];
 jp060n02bottom = [jp060n02ML, jp060n02AP, jp060n02depth];
 jp060n02 = [jp060n02top;jp060n02bottom];
-plot3(jp060n02(:,1),jp060n02(:,2),jp060n02(:,3),'k')
+plot3(jp060n02(:,1),jp060n02(:,2),jp060n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp060n02ML, jp060n02AP, 0, '  jp060n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 
 jp060n02ch32 = scatter3(jp060n02ML, jp060n02AP, jp060n02depth + 3100, dot_size, 'r', 'filled');
 jp060n02ch31 = scatter3(jp060n02ML, jp060n02AP, jp060n02depth + 3000, dot_size, 'r', 'filled');
@@ -111,7 +119,11 @@ jp061n02ML = 4;
 jp061n02top = [jp061n02ML, jp061n02AP, 0];
 jp061n02bottom = [jp061n02ML, jp061n02AP, jp061n02depth];
 jp061n02 = [jp061n02top;jp061n02bottom];
-plot3(jp061n02(:,1),jp061n02(:,2),jp061n02(:,3),'k')
+plot3(jp061n02(:,1),jp061n02(:,2),jp061n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp061n02ML, jp061n02AP, 0, '  jp061n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp061n02ch32 = scatter3(jp061n02ML, jp061n02AP, jp061n02depth + 3100, dot_size, 'r', 'filled');
 jp061n02ch31 = scatter3(jp061n02ML, jp061n02AP, jp061n02depth + 3000, dot_size, 'r', 'filled');
@@ -159,7 +171,11 @@ jp064n02ML = 4.7;
 jp064n02top = [jp064n02ML, jp064n02AP, 0];
 jp064n02bottom = [jp064n02ML, jp064n02AP, jp064n02depth];
 jp064n02 = [jp064n02top;jp064n02bottom];
-plot3(jp064n02(:,1),jp064n02(:,2),jp064n02(:,3),'k')
+plot3(jp064n02(:,1),jp064n02(:,2),jp064n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp064n02ML, jp064n02AP, 0, '  jp064n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp064n02ch32 = scatter3(jp064n02ML, jp064n02AP, jp064n02depth + 3100, dot_size, 'r', 'filled');
 jp064n02ch31 = scatter3(jp064n02ML, jp064n02AP, jp064n02depth + 3000, dot_size, 'r', 'filled');
@@ -208,7 +224,10 @@ jp083n02ML = 4.7;
 jp083n02top = [jp083n02ML, jp083n02AP, 0];
 jp083n02bottom = [jp083n02ML, jp083n02AP, jp083n02depth];
 jp083n02 = [jp083n02top;jp083n02bottom];
-plot3(jp083n02(:,1),jp083n02(:,2),jp083n02(:,3),'k')
+plot3(jp083n02(:,1),jp083n02(:,2),jp083n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp083n02ML, jp083n02AP, 0, '  jp083n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 
 jp083n02ch32 = scatter3(jp083n02ML, jp083n02AP, jp083n02depth + 3100, dot_size, 'r', 'filled');
 jp083n02ch31 = scatter3(jp083n02ML, jp083n02AP, jp083n02depth + 3000, dot_size, 'r', 'filled');
@@ -257,7 +276,10 @@ jp090n02ML = 4.7;
 jp090n02top = [jp090n02ML, jp090n02AP, 0];
 jp090n02bottom = [jp090n02ML, jp090n02AP, jp090n02depth];
 jp090n02 = [jp090n02top;jp090n02bottom];
-plot3(jp090n02(:,1),jp090n02(:,2),jp090n02(:,3),'k')
+plot3(jp090n02(:,1),jp090n02(:,2),jp090n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp090n02ML, jp090n02AP, 0, '  jp090n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 
 jp090n02ch32 = scatter3(jp090n02ML, jp090n02AP, jp090n02depth + 3100, dot_size, 'r', 'filled');
 jp090n02ch31 = scatter3(jp090n02ML, jp090n02AP, jp090n02depth + 3000, dot_size, 'r', 'filled');
@@ -306,7 +328,10 @@ jp098n02ML = 2.5;
 jp098n02top = [jp098n02ML, jp098n02AP, 0];
 jp098n02bottom = [jp098n02ML, jp098n02AP, jp098n02depth];
 jp098n02 = [jp098n02top;jp098n02bottom];
-plot3(jp098n02(:,1),jp098n02(:,2),jp098n02(:,3),'k')
+plot3(jp098n02(:,1),jp098n02(:,2),jp098n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp098n02ML, jp098n02AP, 0, '  jp098n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 
 jp098n02ch32 = scatter3(jp098n02ML, jp098n02AP, jp098n02depth + 3100, dot_size, 'r', 'filled');
 jp098n02ch31 = scatter3(jp098n02ML, jp098n02AP, jp098n02depth + 3000, dot_size, 'r', 'filled');
@@ -355,7 +380,11 @@ jp104n02ML = 2.5;
 jp104n02top = [jp104n02ML, jp104n02AP, 0];
 jp104n02bottom = [jp104n02ML, jp104n02AP, jp104n02depth];
 jp104n02 = [jp104n02top;jp104n02bottom];
-plot3(jp104n02(:,1),jp104n02(:,2),jp104n02(:,3),'k')
+plot3(jp104n02(:,1),jp104n02(:,2),jp104n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp104n02ML, jp104n02AP, 0, '  jp104n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp104n02ch32 = scatter3(jp104n02ML, jp104n02AP, jp104n02depth + 3100, dot_size, 'r', 'filled');
 jp104n02ch31 = scatter3(jp104n02ML, jp104n02AP, jp104n02depth + 3000, dot_size, 'r', 'filled');
@@ -404,7 +433,11 @@ jp106n02ML = 1.8;
 jp106n02top = [jp106n02ML, jp106n02AP, 0];
 jp106n02bottom = [jp106n02ML, jp106n02AP, jp106n02depth];
 jp106n02 = [jp106n02top;jp106n02bottom];
-plot3(jp106n02(:,1),jp106n02(:,2),jp106n02(:,3),'k')
+plot3(jp106n02(:,1),jp106n02(:,2),jp106n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp106n02ML, jp106n02AP, 0, '  jp106n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp106n02ch32 = scatter3(jp106n02ML, jp106n02AP, jp106n02depth + 3100, dot_size, 'r', 'filled');
 jp106n02ch31 = scatter3(jp106n02ML, jp106n02AP, jp106n02depth + 3000, dot_size, 'r', 'filled');
@@ -453,7 +486,11 @@ jp107n02ML = 3;
 jp107n02top = [jp107n02ML, jp107n02AP, 0];
 jp107n02bottom = [jp107n02ML, jp107n02AP, jp107n02depth];
 jp107n02 = [jp107n02top;jp107n02bottom];
-plot3(jp107n02(:,1),jp107n02(:,2),jp107n02(:,3),'k')
+plot3(jp107n02(:,1),jp107n02(:,2),jp107n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp107n02ML, jp107n02AP, 0, '  jp107n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp107n02ch32 = scatter3(jp107n02ML, jp107n02AP, jp107n02depth + 3100, dot_size, 'r', 'filled');
 jp107n02ch31 = scatter3(jp107n02ML, jp107n02AP, jp107n02depth + 3000, dot_size, 'r', 'filled');
@@ -502,7 +539,10 @@ jp110n02ML = 2.5;
 jp110n02top = [jp110n02ML, jp110n02AP, 0];
 jp110n02bottom = [jp110n02ML, jp110n02AP, jp110n02depth];
 jp110n02 = [jp110n02top;jp110n02bottom];
-plot3(jp110n02(:,1),jp110n02(:,2),jp110n02(:,3),'k')
+plot3(jp110n02(:,1),jp110n02(:,2),jp110n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp110n02ML, jp110n02AP, 0, '  jp110n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 
 jp110n02ch32 = scatter3(jp110n02ML, jp110n02AP, jp110n02depth + 3100, dot_size, 'r', 'filled');
 jp110n02ch31 = scatter3(jp110n02ML, jp110n02AP, jp110n02depth + 3000, dot_size, 'r', 'filled');
@@ -551,7 +591,11 @@ jp111n02ML = 1.8;
 jp111n02top = [jp111n02ML, jp111n02AP, 0];
 jp111n02bottom = [jp111n02ML, jp111n02AP, jp111n02depth];
 jp111n02 = [jp111n02top;jp111n02bottom];
-plot3(jp111n02(:,1),jp111n02(:,2),jp111n02(:,3),'k')
+plot3(jp111n02(:,1),jp111n02(:,2),jp111n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp111n02ML, jp111n02AP, 0, '  jp111n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp111n02ch32 = scatter3(jp111n02ML, jp111n02AP, jp111n02depth + 3100, dot_size, 'r', 'filled');
 jp111n02ch31 = scatter3(jp111n02ML, jp111n02AP, jp111n02depth + 3000, dot_size, 'r', 'filled');
@@ -600,7 +644,11 @@ jp113n02ML = 4;
 jp113n02top = [jp113n02ML, jp113n02AP, 0];
 jp113n02bottom = [jp113n02ML, jp113n02AP, jp113n02depth];
 jp113n02 = [jp113n02top;jp113n02bottom];
-plot3(jp113n02(:,1),jp113n02(:,2),jp113n02(:,3),'k')
+plot3(jp113n02(:,1),jp113n02(:,2),jp113n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp113n02ML, jp113n02AP, 0, '  jp113n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp113n02ch32 = scatter3(jp113n02ML, jp113n02AP, jp113n02depth + 3100, dot_size, 'r', 'filled');
 jp113n02ch31 = scatter3(jp113n02ML, jp113n02AP, jp113n02depth + 3000, dot_size, 'r', 'filled');
@@ -649,7 +697,11 @@ jp114n03ML = 2.5;
 jp114n03top = [jp114n03ML, jp114n03AP, 0];
 jp114n03bottom = [jp114n03ML, jp114n03AP, jp114n03depth];
 jp114n03 = [jp114n03top;jp114n03bottom];
-plot3(jp114n03(:,1),jp114n03(:,2),jp114n03(:,3),'k')
+plot3(jp114n03(:,1),jp114n03(:,2),jp114n03(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp114n03ML, jp114n03AP, 0, '  jp114n03', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp114n03ch32 = scatter3(jp114n03ML, jp114n03AP, jp114n03depth + 3100, dot_size, 'r', 'filled');
 jp114n03ch31 = scatter3(jp114n03ML, jp114n03AP, jp114n03depth + 3000, dot_size, 'r', 'filled');
@@ -698,7 +750,11 @@ jp119n02ML = 2.5;
 jp119n02top = [jp119n02ML, jp119n02AP, 0];
 jp119n02bottom = [jp119n02ML, jp119n02AP, jp119n02depth];
 jp119n02 = [jp119n02top;jp119n02bottom];
-plot3(jp119n02(:,1),jp119n02(:,2),jp119n02(:,3),'k')
+plot3(jp119n02(:,1),jp119n02(:,2),jp119n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp119n02ML, jp119n02AP, 0, '  jp119n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp119n02ch32 = scatter3(jp119n02ML, jp119n02AP, jp119n02depth + 3100, dot_size, 'r', 'filled');
 jp119n02ch31 = scatter3(jp119n02ML, jp119n02AP, jp119n02depth + 3000, dot_size, 'r', 'filled');
@@ -747,7 +803,11 @@ jp121n02ML = 2.5;
 jp121n02top = [jp121n02ML, jp121n02AP, 0];
 jp121n02bottom = [jp121n02ML, jp121n02AP, jp121n02depth];
 jp121n02 = [jp121n02top;jp121n02bottom];
-plot3(jp121n02(:,1),jp121n02(:,2),jp121n02(:,3),'k')
+plot3(jp121n02(:,1),jp121n02(:,2),jp121n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp121n02ML, jp121n02AP, 0, '  jp121n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp121n02ch32 = scatter3(jp121n02ML, jp121n02AP, jp121n02depth + 3100, dot_size, 'r', 'filled');
 jp121n02ch31 = scatter3(jp121n02ML, jp121n02AP, jp121n02depth + 3000, dot_size, 'r', 'filled');
@@ -790,13 +850,17 @@ jp121n02ch01 = scatter3(jp121n02ML, jp121n02AP, jp121n02depth +    0, dot_size, 
 % variables
 jp123n02depth = -6500;
 jp123n02AP = 2;
-jp123n02ML = 3;
+jp123n02ML = 1.8;
 
 % session depth + coordinates
 jp123n02top = [jp123n02ML, jp123n02AP, 0];
 jp123n02bottom = [jp123n02ML, jp123n02AP, jp123n02depth];
 jp123n02 = [jp123n02top;jp123n02bottom];
-plot3(jp123n02(:,1),jp123n02(:,2),jp123n02(:,3),'k')
+plot3(jp123n02(:,1),jp123n02(:,2),jp123n02(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp123n02ML, jp123n02AP, 0, '  jp123n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp123n02ch32 = scatter3(jp123n02ML, jp123n02AP, jp123n02depth + 3100, dot_size, 'r', 'filled');
 jp123n02ch31 = scatter3(jp123n02ML, jp123n02AP, jp123n02depth + 3000, dot_size, 'r', 'filled');
@@ -845,7 +909,11 @@ jp124n03ML = 2.5;
 jp124n03top = [jp124n03ML, jp124n03AP, 0];
 jp124n03bottom = [jp124n03ML, jp124n03AP, jp124n03depth];
 jp124n03 = [jp124n03top;jp124n03bottom];
-plot3(jp124n03(:,1),jp124n03(:,2),jp124n03(:,3),'k')
+plot3(jp124n03(:,1),jp124n03(:,2),jp124n03(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp124n03ML, jp124n03AP, 0, '  jp124n03', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp124n03ch32 = scatter3(jp124n03ML, jp124n03AP, jp124n03depth + 3100, dot_size, 'r', 'filled');
 jp124n03ch31 = scatter3(jp124n03ML, jp124n03AP, jp124n03depth + 3000, dot_size, 'r', 'filled');
@@ -888,13 +956,17 @@ jp124n03ch01 = scatter3(jp124n03ML, jp124n03AP, jp124n03depth +    0, dot_size, 
 % variables
 jp125n03depth = -6000;
 jp125n03AP = 2;
-jp125n03ML = 3;
+jp125n03ML = 1.8;
 
 % session depth + coordinates
 jp125n03top = [jp125n03ML, jp125n03AP, 0];
 jp125n03bottom = [jp125n03ML, jp125n03AP, jp125n03depth];
 jp125n03 = [jp125n03top;jp125n03bottom];
-plot3(jp125n03(:,1),jp125n03(:,2),jp125n03(:,3),'k')
+plot3(jp125n03(:,1),jp125n03(:,2),jp125n03(:,3),'k', 'LineWidth', 2)
+
+% label top point with session id
+text(jp125n03ML, jp125n03AP, 0, '  jp125n03', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+
 
 jp125n03ch32 = scatter3(jp125n03ML, jp125n03AP, jp125n03depth + 3100, dot_size, 'r', 'filled');
 jp125n03ch31 = scatter3(jp125n03ML, jp125n03AP, jp125n03depth + 3000, dot_size, 'r', 'filled');
@@ -935,15 +1007,96 @@ jp125n03ch01 = scatter3(jp125n03ML, jp125n03AP, jp125n03depth +    0, dot_size, 
 [x2,y2,z2]=cylinder(9.5,50);
 
 z1=z1 + 0;
-z2= z2 - 7000;
-s1=surf(x1,y1,z1);
-s2=surf(x2,y2,z2);
+z2= z2 - 10000;
+s1=surf(x1,y1,z1, 'LineWidth', 5);
+s2=surf(x2,y2,z2, 'LineWidth', 5);
+
+
+% plot transparent planes to show depths
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% mlaxisi = length(ax.XTick);
+% apaxisi = length(ax.YTick);
+% dvaxisi = length(ax.ZTick);
+% 
+% 
+% 
+% x1 = -10:1:10;
+% x2 = 10:1:-10;
+% x3 = 10:1:-10;
+% x4 = -10:1:10;
+% 
+% y1 = -10:1:10;
+% y2 = 10:1:-10;
+% y3 = 10:1:-10;
+% y4 = -10:1:10;
+% 
+% z1 = 0 : 1000 : -10000;
+% z2 = 0 : 1000 : -10000;
+% z3 = -10000 : 1000 : 0;
+% z4 = -10000 : 1000 : 0;
+% 
+% 
+% p1 = patch( [x1i x2i x3i x4i x1i], [y1i y2i y3i y4i y1i], [z1i z2i z3i z4i z1i], 'k' );
+%         set(p1,'FaceAlpha',0.1);
+
+
+
+
+
+
+
 
 % setup plot dimensions/variables
 grid on;
 set(gca,'LineWidth',3)
 box on;
-axis([-10, 10, -10, 10, -7000, 1000])
+axis([-10, 10, -10, 10, -10000, 1000])
 title('Jo LFEF CCM Penetrations', 'fontsize', 24);
 
+
+ax = gca; % current axes
+ax.FontSize = 16;
+ax.XTick = -10:1:10;
+ax.YTick = -10:1:10;
+ax.ZTick = -10000:500:1000;
+
+xlabel('Lateral - Medial (mm)', 'fontsize', 24);
+xticklabels = {'L10', 'L9', 'L8', 'L7', 'L6', 'L5', 'L4', 'L3',...
+    'L2', 'L1', 'ML0', 'M1', 'M2', 'M3', 'M4', 'M5',...
+    'M6', 'M7', 'M8', 'M9', 'M10'};
+set(gca, 'XTick', xticks, 'XTickLabel', xticklabels(:))
+
+ylabel('Anterior - Posterior (mm)', 'fontsize', 24);
+yticklabels = {'P10', 'P9', 'P8', 'P7', 'P6', 'P5', 'P4', 'P3',...
+    'P2', 'P1', 'AP0', 'A1', 'A2', 'A3', 'A4', 'A5',...
+    'A6', 'A7', 'A8', 'A9', 'A10'};
+set(gca, 'YTick', yticks, 'YTickLabel', yticklabels(:))
+
+zlabel('Penetration Depth (?m)', 'fontsize', 24);
+
+
+
 set(gcf, 'units', 'norm', 'position', [0 0 .5 .9])
+
+

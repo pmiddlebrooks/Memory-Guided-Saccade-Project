@@ -50,12 +50,12 @@ eegLogical      = mData{5};
 
 % Extract only sessions with spike data, set epoch window
 sessionList = sessionList(neuronLogical);
-epochWindow = [-300 : 200];
+epochWindow = [-0 : 200];
 
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 3;
+sessionInd = 16;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -70,7 +70,7 @@ Kernel.decay = 20;
 
 sdfAll = [];
 sdfAllNorm = [];
-alignEvent = 'responseOnset';
+alignEvent = 'targOn';
 
 side = {'right'};
 trialsRight = mem_trial_selection(trialData, outcome, side);
@@ -96,11 +96,11 @@ unitArrayNew = (unitArrayNew');
 % Plot it on top of the rasters
 
 % set up plot variable
-plotWindow = [-300 : 200];
+plotWindow = [-0 : 200];
 
 figure(1)
 set(gcf, 'units', 'norm', 'position', [0 0 .3 .9])
-title('jp113n01 responseOnset right', 'fontsize', 24);
+title('jp121n01 responseOnset right', 'fontsize', 24);
 xlabel('time (ms) from saccade', 'fontsize', 18);
 %ylabel('Channels', 'fontsize', 18);
 plotAdjust = 100;

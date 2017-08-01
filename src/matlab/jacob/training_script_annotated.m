@@ -56,7 +56,7 @@ sessionList = sessionList(neuronLogical);
 % Pick a session and load the data
 
 % session row/rows
-sessionInd = 1;
+sessionInd = 15;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -75,7 +75,7 @@ trials = mem_trial_selection(trialData, outcome, side);
 
 % Set up the variables
 unitIndex = 1;
-alignEvent = 'targOn';
+alignEvent = 'responseOnset';
 alignList = trialData.(alignEvent)(trials); % on which trials alignEvent was 'targOn' in trialData
 epochWindow = [-500:500]; 
     
@@ -86,7 +86,7 @@ epochWindow = [-500:500];
 % Plot each raster to see each trial's spiking times
 
 % Set up plot variables
-plotWindow = [-500 : 500];
+plotWindow = [-300 : 200];
 nTrial = length(trials);
 
 
