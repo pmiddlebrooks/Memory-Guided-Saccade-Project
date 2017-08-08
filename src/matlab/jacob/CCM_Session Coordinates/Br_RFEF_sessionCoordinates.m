@@ -1,3 +1,5 @@
+% SESSION COORDINATES FOR BROCA CCM RIGHT FEF
+
 % setup variables
 dot_size = 100;
 hold on;

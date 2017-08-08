@@ -26,10 +26,10 @@ cd(matRoot);
 % Open a Data File
 
 % declare subject for session list
-subject = 'joule';
+subject = 'broca';
 
 % Open the list of memory guided saccade sessions
-fid = fopen(fullfile(dataRoot,subject, ['mem_sessions_',subject,'.csv']));
+fid = fopen(fullfile(dataRoot,subject, ['del_sessions_',subject,'.csv']));
 
 % Headers for data type
 nCol = 5;
@@ -56,7 +56,7 @@ epochWindow = [-300 : 200];
 % Begin for loop for all sessions
 
 % session row/rows
-sessionInd = 15;
+sessionInd = 12;
 session = sessionList{sessionInd};
 
 [trialData, SessionData] = load_data(subject, session, mem_min_vars, 1);
@@ -73,7 +73,7 @@ sdfAll = [];
 %alignEvent = 'targOn';
 alignEvent = 'responseOnset';
 
-% sidename = 'left';
+%sidename = 'left';
 sidename = 'right';
 side = {sidename};
 

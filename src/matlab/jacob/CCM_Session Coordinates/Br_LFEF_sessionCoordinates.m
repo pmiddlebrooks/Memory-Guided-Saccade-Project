@@ -1,3 +1,6 @@
+% SESSION COORDINATES FOR BROCA CCM LEFT FEF
+
+
 % setup variables
 dot_size = 50;
 hold on;
@@ -383,13 +386,62 @@ bp225n02ch01 = scatter3(bp225n02ML, bp225n02AP, bp225n02depth +    0, dot_size, 
 
 
 %
+% bp226n02
+%
+
+% variables
+bp226n02depth = -5200;
+bp226n02AP = -6;
+bp226n02ML = -5;
+
+% session depth + coordinates
+bp226n02top = [bp226n02ML, bp226n02AP, 0];
+bp226n02bottom = [bp226n02ML, bp226n02AP, bp226n02depth];
+bp226n02 = [bp226n02top;bp226n02bottom];
+plot3(bp226n02(:,1),bp226n02(:,2),bp226n02(:,3),'k', 'LineWidth', 2)
+
+bp226n02ch08 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth + 1400, dot_size, 'r', 'filled');
+bp226n02ch07 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth + 1200, dot_size, 'r', 'filled');
+bp226n02ch06 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth + 1000, dot_size, 'r', 'filled');
+bp226n02ch05 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth +  800, dot_size, 'r', 'filled');
+bp226n02ch04 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth +  600, dot_size, 'r', 'filled');
+bp226n02ch03 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth +  400, dot_size, 'r', 'filled');
+bp226n02ch02 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth +  200, dot_size, 'r', 'filled');
+bp226n02ch01 = scatter3(bp226n02ML, bp226n02AP, bp226n02depth +    0, dot_size, 'r', 'filled');
+
+%
+% bp227n02
+%
+
+% variables
+bp227n02depth = -5200;
+bp227n02AP = -6;
+bp227n02ML = -5;
+
+% session depth + coordinates
+bp227n02top = [bp227n02ML, bp227n02AP, 0];
+bp227n02bottom = [bp227n02ML, bp227n02AP, bp227n02depth];
+bp227n02 = [bp227n02top;bp227n02bottom];
+plot3(bp227n02(:,1),bp227n02(:,2),bp227n02(:,3),'k', 'LineWidth', 2)
+
+bp227n02ch08 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth + 1400, dot_size, 'r', 'filled');
+bp227n02ch07 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth + 1200, dot_size, 'r', 'filled');
+bp227n02ch06 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth + 1000, dot_size, 'r', 'filled');
+bp227n02ch05 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth +  800, dot_size, 'r', 'filled');
+bp227n02ch04 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth +  600, dot_size, 'r', 'filled');
+bp227n02ch03 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth +  400, dot_size, 'r', 'filled');
+bp227n02ch02 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth +  200, dot_size, 'r', 'filled');
+bp227n02ch01 = scatter3(bp227n02ML, bp227n02AP, bp227n02depth +    0, dot_size, 'r', 'filled');
+
+
+%
 % bp228n02
 %
 
 % variables
-bp228n02depth = -7500;
-bp228n02AP = -6.5;
-bp228n02ML = -5;
+bp228n02depth = -5100;
+bp228n02AP = -6;
+bp228n02ML = -4.5;
 
 % session depth + coordinates
 bp228n02top = [bp228n02ML, bp228n02AP, 0];
@@ -1327,6 +1379,8 @@ text(bp221n02ML, bp221n02AP, 0, '  bp221n02', 'FontSize', 16, 'FontWeight', 'bol
 text(bp222n02ML, bp222n02AP, 0, '  bp222n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 text(bp224n02ML, bp224n02AP, 0, '  bp224n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 text(bp225n02ML, bp225n02AP, 0, '  bp225n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+text(bp226n02ML, bp226n02AP, 0, '  bp226n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
+text(bp227n02ML, bp227n02AP, 0, '  bp227n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 text(bp228n02ML, bp228n02AP, 0, '  bp228n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 text(bp229n02ML, bp229n02AP, 0, '  bp229n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
 text(bp230n02ML, bp230n02AP, 0, '  bp230n02', 'FontSize', 16, 'FontWeight', 'bold', 'EdgeColor', 'k')
