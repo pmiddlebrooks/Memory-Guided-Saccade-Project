@@ -3,7 +3,7 @@ load('muaData-HeGaDa-170720.mat')
 doBinary = 0;
 
 for i = 1:numel(visCorrMats), 
-    thisMat = visCorrMats{2 , i};  % 1=He, 2=Ga, 3=Da
+    thisMat = visCorrMats{1 , i};  % 1=He, 2=Ga, 3=Da
     figure(i); 
     if doBinary
         imagesc(thisMat >= .5); hold on;
@@ -24,7 +24,7 @@ for i = 1:numel(visCorrMats),
     box off;     
     cb = colorbar;
     ylabel(cb, 'r^2', 'fontsize', 18);    
-    title(sprintf('%s', sessNames{2, i}, ' targOn'), 'fontsize', 24);
+    title(sprintf('%s', sessNames{1, i}, ' targOn'), 'fontsize', 24);
     set(cb, 'units', 'norm', 'Position', [.9 .05 .02 .9],  'fontsize', 14);
     currentaxis = gca;
     set(currentaxis, 'Position', [.0 .05 .9 .9]); 
